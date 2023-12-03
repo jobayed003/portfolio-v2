@@ -2,6 +2,9 @@
 
 import Hero from '@/components/Layout/Hero';
 import Navbar from '@/components/Layout/Navbar';
+import Parallax from '@/components/UI/Parallax';
+import Portfolio from '@/components/UI/Portfolio';
+import Services from '@/components/UI/Services';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 
 export default function Home() {
@@ -14,10 +17,16 @@ export default function Home() {
             <Hero />
          </Box>
          <Box id='Services' h='100vh'>
-            Services
+            <Parallax type='services' />
+         </Box>
+         <Box id='Services' h='100vh'>
+            <Services />
          </Box>
          <Box id='Portfolio' h='100vh'>
-            Parralax
+            <Parallax type='portfolio' />
+         </Box>
+         <Box id='Portfolio' h='100vh'>
+            <Portfolio />
          </Box>
          <Box id='Contact' h='100vh'>
             Contact
