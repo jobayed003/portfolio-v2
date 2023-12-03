@@ -1,4 +1,6 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 const items = [
    {
@@ -29,8 +31,26 @@ const items = [
    },
 ];
 const Portfolio = () => {
+   const containerRef = useRef(null);
+
+   const { scrollYProgress } = useScroll({
+      target: containerRef,
+      offset: ['end end', 'start start'],
+   });
+
+   const scaleX = useSpring(scrollYProgress, {
+      stiffness: 100,
+      damping: 30,
+   });
+
    return (
-      <Box>
+      <Box ref={containerRef} pos={'relative'}>
+         <Box position={'sticky'} top={0} left={0} pt='50px' textAlign={'center'} color='orange'>
+            <Text as='h1' fontSize={'36px'} fontWeight={'bold'}>
+               Featured Works
+            </Text>
+            <Box as={motion.div} style={{ scaleX }} height={'10px'} bg='white' />
+         </Box>
          {items.map((item) => (
             <Single item={item} key={item.id} />
          ))}
@@ -41,5 +61,30 @@ const Portfolio = () => {
 export default Portfolio;
 
 const Single = ({ item }: { item: { id: number; title: string; img: string; desc: string } }) => {
-   return <Box>{item.title}</Box>;
+   const containerRef = useRef(null);
+
+   const { scrollYProgress } = useScroll({
+      target: containerRef,
+      offset: ['end end', 'start start'],
+   });
+
+   const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
+
+   return (
+      <Box ref={containerRef} maxW={'1400px'} m='auto' py='5rem' h='100%'>
+         <Flex align={'center'} justify={'center'} w='100%' h='100%' gap={'50px'}>
+            <Box flex={1} h='50%' borderRadius={'5px'} overflow={'hidden'}>
+               <Image alt='project img' src={item.img} objectFit={'cover'} />
+            </Box>
+            <Box as={motion.div} flex={1}>
+               {/* @ts-ignore */}
+               <Text as='h2' style={{ y }}>
+                  {item.title}
+               </Text>
+               <Text>{item.desc}</Text>
+               <Button>See Demo</Button>
+            </Box>
+         </Flex>
+      </Box>
+   );
 };

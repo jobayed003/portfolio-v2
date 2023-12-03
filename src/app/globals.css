@@ -16,7 +16,7 @@ html {
 
 html,
 body {
-   overflow-x: hidden;
+   /* overflow-x: hidden; */
    font-family: 'DM Sans';
    /* background-color: ; */
 }

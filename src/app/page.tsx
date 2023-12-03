@@ -25,15 +25,11 @@ export default function Home() {
          <Box id='Portfolio' h='100vh'>
             <Parallax type='portfolio' />
          </Box>
-         <Box id='Portfolio' h='100vh'>
+         <Box id='Portfolio'>
             <Portfolio />
          </Box>
-         <Box id='Contact' h='100vh'>
-            Contact
-         </Box>
-         <Box id='About' h='100vh'>
-            About
-         </Box>
+         <Box id='Contact'>Contact</Box>
+         <Box id='About'>About</Box>
       </Box>
    );
 }
