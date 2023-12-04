@@ -65,25 +65,28 @@ const Single = ({ item }: { item: { id: number; title: string; img: string; desc
 
    const { scrollYProgress } = useScroll({
       target: containerRef,
-      offset: ['end end', 'start start'],
    });
 
-   const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
+   const y = useTransform(scrollYProgress, [0, 1], [-100, 200]);
 
    return (
-      <Box ref={containerRef} maxW={'1400px'} m='auto' py='5rem' h='100%'>
+      <Box maxW={'1400px'} m='auto' py='5rem' h='100%' overflow={'hidden'}>
          <Flex align={'center'} justify={'center'} w='100%' h='100%' gap={'50px'}>
-            <Box flex={1} h='50%' borderRadius={'5px'} overflow={'hidden'}>
+            <Box flex={1} h='50%' borderRadius={'5px'} overflow={'hidden'} ref={containerRef}>
                <Image alt='project img' src={item.img} objectFit={'cover'} />
             </Box>
-            <Box as={motion.div} flex={1}>
+            <Flex as={motion.div} flex={1} flexDir={'column'} gap='20px' style={{ y }}>
                {/* @ts-ignore */}
-               <Text as='h2' style={{ y }}>
+               <Text as='h2' fontWeight={'bold'} fontSize={'72px'}>
                   {item.title}
                </Text>
-               <Text>{item.desc}</Text>
-               <Button>See Demo</Button>
-            </Box>
+               <Text color={'gray'} fontSize={'20px'}>
+                  {item.desc}
+               </Text>
+               <Button bg={'orange'} border={'none'} borderRadius={'10px'} w='200px'>
+                  See Demo
+               </Button>
+            </Flex>
          </Flex>
       </Box>
    );

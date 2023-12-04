@@ -2,6 +2,7 @@
 
 import Hero from '@/components/Layout/Hero';
 import Navbar from '@/components/Layout/Navbar';
+import Contact from '@/components/UI/Contact';
 import Parallax from '@/components/UI/Parallax';
 import Portfolio from '@/components/UI/Portfolio';
 import Services from '@/components/UI/Services';
@@ -22,13 +23,15 @@ export default function Home() {
          <Box id='Services' h='100vh'>
             <Services />
          </Box>
-         <Box id='Portfolio' h='100vh'>
+         <Box id='Portfolio'>
             <Parallax type='portfolio' />
          </Box>
          <Box id='Portfolio'>
             <Portfolio />
          </Box>
-         <Box id='Contact'>Contact</Box>
+         <Box id='Contact'>
+            <Contact />
+         </Box>
          <Box id='About'>About</Box>
       </Box>
    );
