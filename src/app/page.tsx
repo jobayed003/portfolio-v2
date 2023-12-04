@@ -3,6 +3,7 @@
 import Hero from '@/components/Layout/Hero';
 import Navbar from '@/components/Layout/Navbar';
 import Contact from '@/components/UI/Contact';
+import Cursor from '@/components/UI/Cursor';
 import Parallax from '@/components/UI/Parallax';
 import Portfolio from '@/components/UI/Portfolio';
 import Services from '@/components/UI/Services';
@@ -13,6 +14,7 @@ export default function Home() {
 
    return (
       <Box bg={bgColor}>
+         <Cursor />
          <Box id='Homepage'>
             <Navbar />
             <Hero />
@@ -29,10 +31,9 @@ export default function Home() {
          <Box id='Portfolio'>
             <Portfolio />
          </Box>
-         <Box id='Contact'>
+         <Box id='Contact' h='%'>
             <Contact />
          </Box>
-         <Box id='About'>About</Box>
       </Box>
    );
 }

@@ -26,10 +26,10 @@ const Contact = () => {
    const isInView = useInView(conatinerRef, { margin: '-100px' });
    const toast = useToast();
 
-   const sendEmail = (e) => {
+   const sendEmail = (e: HTMLFormElement) => {
       e.preventDefault();
 
-      emailjs.sendForm('service_su6qnyf', 'template_pf0fg6p', formRef?.current, 'WawrINGoXMHsBg3fr').then(
+      emailjs.sendForm('service_su6qnyf', 'template_pf0fg6p', formRef?.current!, 'WawrINGoXMHsBg3fr').then(
          (result) => {
             toast({
                position: 'bottom-right',
