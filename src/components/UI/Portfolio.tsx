@@ -45,7 +45,7 @@ const Portfolio = () => {
 
   return (
     <Box ref={containerRef} pos={'relative'}>
-      <Box position={'sticky'} top={0} left={0} pt='50px' textAlign={'center'} color='orange' zIndex={'1000'}>
+      <Box position={'sticky'} top={0} left={0} pt='50px' textAlign={'center'} color='orange' zIndex={'99'}>
         <Text as='h1' fontSize={'36px'} fontWeight={'bold'}>
           Featured Works
         </Text>
